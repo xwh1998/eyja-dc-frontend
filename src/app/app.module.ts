@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AuthInterceptor, AuthService, FakeBackendInterceptor } from '@services/*';
+import {CheckboxComponent} from '../theme/components/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

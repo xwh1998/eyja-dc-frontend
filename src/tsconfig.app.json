@@ -5,7 +5,8 @@
     "baseUrl": "./",
     //"module": "es2015",
     "types": ["d3", "nvd3", "material-design-lite"]
-  },
+  }
+,
   "files": [
     "main.ts",
     "polyfills.ts"

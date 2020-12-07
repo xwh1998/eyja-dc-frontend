@@ -10,6 +10,7 @@ import { DashboardModule } from '../dashboard/dashboard.module';
 import { MapsModule } from '../maps/maps.module';
 import { Dashboard2Component } from './dashboard2.component';
 import { FiltersComponent } from './filters/filters.component';
+import { FileListComponent } from './file-list/file-list.component';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { FiltersComponent } from './filters/filters.component';
   declarations: [
     Dashboard2Component,
     FiltersComponent,
+    FileListComponent,
   ],
 })
 export class Dashboard2Module {}

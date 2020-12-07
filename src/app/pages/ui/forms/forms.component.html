@@ -48,33 +48,33 @@
       <h5 class="mdl-card__title-text text-color--white">PROFILE INFO</h5>
     </base-card-title>
     <base-card-body>
-    <form class="form form--basic">
-      <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--1-col-phone">
-          <div class="profile-image color--smooth-gray profile-image--round">
-            <img src="/assets/images/Bobby.PNG">
+      <form class="form form--basic">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--1-col-phone">
+            <div class="profile-image color--smooth-gray profile-image--round">
+              <img src="/assets/images/Bobby.PNG">
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--8-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone form__article">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-size">
+              <input class="mdl-textfield__input" type="text" value="Bob" id="profile-floating-first-name">
+              <label class="mdl-textfield__label" for="profile-floating-first-name">First Name</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-size">
+              <input class="mdl-textfield__input" type="text" value="Kelso" id="profile-floating-last-name">
+              <label class="mdl-textfield__label" for="profile-floating-last-name">Last Name</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-size">
+              <input class="mdl-textfield__input" type="text" value="BobbyK@darkboard.io" id="profile-floating-e-mail">
+              <label class="mdl-textfield__label" for="floating-e-mail">Email</label>
+            </div>
+            <material-angular-select [data]="countries"
+                                     [name]="'location'"
+                                     [label]="'Location'"
+                                     [currentValue]="locationValue"></material-angular-select>
           </div>
         </div>
-        <div class="mdl-cell mdl-cell--8-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone form__article">
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-size">
-            <input class="mdl-textfield__input" type="text" value="Bob" id="profile-floating-first-name">
-            <label class="mdl-textfield__label" for="profile-floating-first-name">First Name</label>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-size">
-            <input class="mdl-textfield__input" type="text" value="Kelso" id="profile-floating-last-name">
-            <label class="mdl-textfield__label" for="profile-floating-last-name">Last Name</label>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-size">
-            <input class="mdl-textfield__input" type="text" value="BobbyK@darkboard.io" id="profile-floating-e-mail">
-            <label class="mdl-textfield__label" for="floating-e-mail">Email</label>
-          </div>
-          <material-angular-select [data]="countries"
-                            [name]="'location'"
-                            [label]="'Location'"
-                            [currentValue]="locationValue"></material-angular-select>
-        </div>
-      </div>
-    </form>
+      </form>
     </base-card-body>
   </base-card>
 </div>

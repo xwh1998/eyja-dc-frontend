@@ -1,9 +1,11 @@
 import * as d3 from 'd3';
 import * as nv from 'nvd3';
 
-import { Component, ElementRef, HostBinding, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostBinding, Input, OnInit} from '@angular/core';
 
 import { PieChartComponent as BasePieChartComponent } from 'theme/components/pie-chart';
+import {MasterReportResponse} from '../../../entity/MasterReportResponse';
+import {MasterBasicService} from '../../../services/master-basic.service';
 
 import { PieChartService } from './pie-chart.service';
 
@@ -13,36 +15,53 @@ import { PieChartService } from './pie-chart.service';
   template: ``,
   providers: [PieChartService],
 })
-export class PieChartComponent extends BasePieChartComponent implements OnInit {
+export class PieChartComponent extends BasePieChartComponent implements AfterViewInit {
+  masterReport: MasterReportResponse;
+
   constructor(
     public el: ElementRef,
     public pieChartService: PieChartService,
+    public masterBasicService: MasterBasicService
   ) {
     super();
   }
 
-  public ngOnInit() {
+  async ngAfterViewInit() {
+    console.log("pie chart init");
     const colors = [
       '#03a9f4',
       '#f44336',
       '#ff9800',
       '#ffc107',
       '#00bcd4',
-      '',
+      '#00ffd2',
+      '#ffc107',
     ];
 
-    const rawData = this.pieChartService.getDaySchedule();
+    this.masterReport = await this.masterBasicService.getMasterReport();
+
+    let rawData = [
+      {
+        key: 'Master: ' + 1,
+        count: 1
+      },
+      {
+        key: 'MRWorker: ' + this.masterReport.nodeCount,
+        count: this.masterReport.nodeCount
+      }
+    ];
+
 
     const animatedData = [
-      ...rawData.map(job => ({ key: job.key, end: job.hours, y: 0 })),
+      ...rawData.map(job => ({ key: job.key, end: job.count, y: 0 })),
       {
         key: 'Pending',
-        y: 23.9,
+        y: this.masterReport.nodeCount + 1,
       },
     ];
 
     nv.addGraph(() => {
-      const innerRadius = 0.86;
+      const innerRadius = 0.8;
       const outerRadius = 1.02;
 
       const pieChart = nv.models.pieChart()
@@ -62,7 +81,7 @@ export class PieChartComponent extends BasePieChartComponent implements OnInit {
             { inner: innerRadius, outer: outerRadius },
         ])
         .showLegend(false)
-        .title('0 hours')
+        .title('0 Nodes')
         .titleOffset(10);
 
       pieChart.tooltip.enabled(true)
@@ -73,7 +92,7 @@ export class PieChartComponent extends BasePieChartComponent implements OnInit {
             return null;
           }
           d3.selectAll('.nvtooltip').classed('mdl-tooltip', true);
-          return `${d.animatedData.y} hours`;
+          return `${d.animatedData.y} Nodes`;
         });
 
       const container = d3.select(this.el.nativeElement)
@@ -92,7 +111,7 @@ export class PieChartComponent extends BasePieChartComponent implements OnInit {
             if (d[i].y < d[i].end) {
               d[i].y += 1;
               d[d.length - 1].y -= 1;
-              pieChart.title(`${h + 1} hours`);
+              pieChart.title(`${h + 1} Nodes`);
               h += 1;
             } else {
               i += 1;

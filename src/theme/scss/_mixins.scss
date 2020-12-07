@@ -116,7 +116,7 @@
 @mixin typo-weather-temperature($usePreferred: true) {
   @include typo-preferred-font($usePreferred);
 
-  font-size: 100px;
+  font-size: 80px;
   line-height: 1;
 }
 
