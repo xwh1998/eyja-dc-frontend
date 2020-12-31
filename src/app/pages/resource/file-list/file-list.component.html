@@ -68,6 +68,11 @@
         <input class="mdl-textfield__input" type="text" id="work-file" [(ngModel)]="workFileURL">
         <label class="mdl-textfield__label" for="work-file">Work File</label>
       </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input" type="text" id="appid" [(ngModel)]="workAppId">
+        <label class="mdl-textfield__label" for="appid">AppId</label>
+      </div>
+      <br>
       <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue"
               [disabled]="submitDisable"
               (click)="onClickSubmitTask()"

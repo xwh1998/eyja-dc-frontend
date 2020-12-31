@@ -11,11 +11,12 @@ export class MapReduceService {
 
   constructor(private httpC: HttpClient) { }
 
-  public async trySubmitTask(workURL: string, inputFiles: string[], reduceCount: number): Promise<string> {
+  public async trySubmitTask(workURL: string, inputFiles: string[], reduceCount: number, appId: number): Promise<string> {
     let request: TaskSubmitRequest = {
       workURL: workURL,
       inputFiles: inputFiles,
-      reduceCount: reduceCount
+      reduceCount: reduceCount,
+      appId: appId
     };
     return new Promise<string>(resolve => {
       let result = this.httpC.post<SimpleResult<string>>(UrlDataService.mapReduceSubmitUrl, request);

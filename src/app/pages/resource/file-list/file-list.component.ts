@@ -15,6 +15,7 @@ export class FileListComponent implements OnInit {
   public fileSelected: boolean[]
 
   public workFileURL:string
+  public workAppId: number
 
   public submitDisable = false;
   public submitBtnText = "提交任务";
@@ -55,7 +56,7 @@ export class FileListComponent implements OnInit {
         files.push(this.resources[i].name);
       }
     }
-    await this.mapReduceService.trySubmitTask(this.workFileURL, files, 10);
+    await this.mapReduceService.trySubmitTask(this.workFileURL, files, 10, this.workAppId);
     this.submitDisable = true;
     this.submitBtnText = "已提交...";
     // await this.router.navigate(['/']);
