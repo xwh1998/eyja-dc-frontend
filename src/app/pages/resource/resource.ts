@@ -4,8 +4,8 @@ import { UpgradableComponent } from 'theme/components/upgradable';
 
 @Component({
   selector: 'app-dashboard-2',
-  styleUrls: ['./dashboard2.component.scss'],
-  templateUrl: './dashboard2.component.html',
+  styleUrls: ['./resource.component.scss'],
+  templateUrl: './resource.component.html',
 })
-export class Dashboard2Component extends UpgradableComponent {
+export class Resource extends UpgradableComponent {
 }

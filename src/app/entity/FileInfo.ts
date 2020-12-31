@@ -1,5 +1,6 @@
 export class FileInfo {
   name: string;
   size: number;
-  modTime: Date
+  modTime: Date;
+  source: string
 }

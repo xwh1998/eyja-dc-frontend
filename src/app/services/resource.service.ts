@@ -29,11 +29,11 @@ export class ResourceService {
     })
   }
 
-  public async getFile(fileName: string): Promise<string> {
+  public async getFile(fileName: string, source: string): Promise<string> {
     return new Promise<string>(resolve => {
       let result = this.httpC
         .get<SimpleResult<string>>(UrlDataService.resourceReadUrl, {
-          params: new HttpParams().set("fileName", fileName)
+          params: new HttpParams().set("fileName", fileName).set("source", source),
         });
       result.subscribe(v => {
         resolve(v.data);
@@ -41,11 +41,13 @@ export class ResourceService {
     })
   }
 
-  public async tryPostResource(name: string, content: string): Promise<string> {
+  public async tryPostResource(name: string, content: string, saveToKV: boolean): Promise<string> {
+    console.log("try post resource...")
     return new Promise<string>(resolve => {
       let result = this.httpC.post<SimpleResult<string>>(UrlDataService.resourceUploadUrl, {
         name: name,
-        content: content
+        content: content,
+        saveToKV: saveToKV
       });
       result.subscribe(v => {
         if (!v.success) {

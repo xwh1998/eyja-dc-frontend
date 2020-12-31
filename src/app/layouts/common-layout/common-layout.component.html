@@ -3,16 +3,16 @@
     <base-page-top>
       <div class="mdl-layout-spacer"></div>
 
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable search">
-        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-          <i class="material-icons">search</i>
-        </label>
+<!--      <div class="mdl-textfield mdl-js-textfield mdl-textfield&#45;&#45;expandable search">-->
+<!--        <label class="mdl-button mdl-js-button mdl-button&#45;&#45;icon" for="search">-->
+<!--          <i class="material-icons">search</i>-->
+<!--        </label>-->
 
-        <div class="mdl-textfield__expandable-holder">
-          <input class="mdl-textfield__input" type="text" id="search"/>
-          <label class="mdl-textfield__label" for="search">Enter your query...</label>
-        </div>
-      </div>
+<!--        <div class="mdl-textfield__expandable-holder">-->
+<!--          <input class="mdl-textfield__input" type="text" id="search"/>-->
+<!--          <label class="mdl-textfield__label" for="search">Enter your query...</label>-->
+<!--        </div>-->
+<!--      </div>-->
 
 <!--      <app-notification-menu></app-notification-menu>-->
 
@@ -20,7 +20,7 @@
 
       <div class="avatar-dropdown" id="icon">
         <span>{{ user.username }}</span>
-        <img src="assets/images/Icon_header.png">
+        <img src="assets/images/Icon_header.png" alt="icon">
       </div>
       <ul
         class="mdl-menu mdl-list mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect mdl-shadow--2dp account-dropdown"
@@ -32,41 +32,41 @@
               <span class="mdl-list__item-sub-title">{{ user.email }}</span>
           </span>
         </li>
-        <li class="list__item--border-top"></li>
-        <li class="mdl-menu__item mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-              <i class="material-icons mdl-list__item-icon">account_circle</i>
-              My account
-            </span>
-        </li>
-        <li class="mdl-menu__item mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-              <i class="material-icons mdl-list__item-icon">check_box</i>
-              My tasks
-            </span>
-          <span class="mdl-list__item-secondary-content">
-              <span class="label background-color--primary">3 new</span>
-            </span>
-        </li>
-        <li class="mdl-menu__item mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-              <i class="material-icons mdl-list__item-icon">perm_contact_calendar</i>
-              My events
-            </span>
-        </li>
-        <li class="list__item--border-top"></li>
-        <li class="mdl-menu__item mdl-list__item">
-            <span class="mdl-list__item-primary-content">
-              <i class="material-icons mdl-list__item-icon">settings</i>
-              Settings
-            </span>
-        </li>
-        <li class="mdl-menu__item mdl-list__item">
-            <span class="mdl-list__item-primary-content" (click)="logout()">
-              <i class="material-icons mdl-list__item-icon text-color--secondary">exit_to_app</i>
-              Log out
-            </span>
-        </li>
+<!--        <li class="list__item&#45;&#45;border-top"></li>-->
+<!--        <li class="mdl-menu__item mdl-list__item">-->
+<!--            <span class="mdl-list__item-primary-content">-->
+<!--              <i class="material-icons mdl-list__item-icon">account_circle</i>-->
+<!--              My account-->
+<!--            </span>-->
+<!--        </li>-->
+<!--        <li class="mdl-menu__item mdl-list__item">-->
+<!--            <span class="mdl-list__item-primary-content">-->
+<!--              <i class="material-icons mdl-list__item-icon">check_box</i>-->
+<!--              My tasks-->
+<!--            </span>-->
+<!--          <span class="mdl-list__item-secondary-content">-->
+<!--              <span class="label background-color&#45;&#45;primary">3 new</span>-->
+<!--            </span>-->
+<!--        </li>-->
+<!--        <li class="mdl-menu__item mdl-list__item">-->
+<!--            <span class="mdl-list__item-primary-content">-->
+<!--              <i class="material-icons mdl-list__item-icon">perm_contact_calendar</i>-->
+<!--              My events-->
+<!--            </span>-->
+<!--        </li>-->
+<!--        <li class="list__item&#45;&#45;border-top"></li>-->
+<!--        <li class="mdl-menu__item mdl-list__item">-->
+<!--            <span class="mdl-list__item-primary-content">-->
+<!--              <i class="material-icons mdl-list__item-icon">settings</i>-->
+<!--              Settings-->
+<!--            </span>-->
+<!--        </li>-->
+<!--        <li class="mdl-menu__item mdl-list__item">-->
+<!--            <span class="mdl-list__item-primary-content" (click)="logout()">-->
+<!--              <i class="material-icons mdl-list__item-icon text-color&#45;&#45;secondary">exit_to_app</i>-->
+<!--              Log out-->
+<!--            </span>-->
+<!--        </li>-->
       </ul>
 
       <button id="more" class="mdl-button mdl-js-button mdl-button--icon">
@@ -75,13 +75,13 @@
       <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect mdl-shadow--2dp settings-dropdown"
           for="more">
         <li class="mdl-menu__item">
-          Settings
+          开发中...
         </li>
-        <a class="mdl-menu__item" href="https://github.com/CreativeIT/material-angular-dashboard/issues">
-          Support
+        <a class="mdl-menu__item" href="https://github.com/">
+          开发中...
         </a>
         <li class="mdl-menu__item">
-          F.A.Q.
+          开发中...
         </li>
       </ul>
     </base-page-top>

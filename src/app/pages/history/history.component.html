@@ -1,0 +1,39 @@
+<div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone">
+  <base-card>
+    <base-card-title>
+      <h1 class="mdl-card__title-text" *ngIf="outFiles">历史结果文件</h1>
+      <h1 class="mdl-card__title-text" *ngIf="!outFiles">加载中...</h1>
+      <div class="mdl-layout-spacer"></div>
+    </base-card-title>
+    <base-card-body class="no-padding">
+      <table class="mdl-data-table mdl-js-data-table">
+        <thead>
+        <tr>
+          <th *ngFor="let header of headers.slice(0, 4)" class="mdl-data-table__cell--non-numeric">{{ header }}</th>
+        </tr>
+        </thead>
+        <tbody *ngIf="outFiles">
+        <tr *ngFor="let file of outFiles">
+          <td class="mdl-data-table__cell--non-numeric">
+            {{file.name}}
+          </td>
+          <td class="mdl-data-table__cell--non-numeric">
+            {{(file.size / 1024).toFixed(2) }} KB
+          </td>
+          <td class="mdl-data-table__cell--non-numeric">
+            {{file.modTime}}
+          </td>
+          <td class="mdl-data-table__cell--non-numeric">
+            {{file.source}}
+            <div *ngIf="file.source === 'KV Cluster'" class="icon material-icons color-text--green" >check</div>
+          </td>
+          <td class="mdl-data-table__cell--non-numeric">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-teal" (click)="onClickReadFile(file.name, file.source)">Read
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </base-card-body>
+  </base-card>
+</div>

@@ -11,7 +11,7 @@ export class SidebarComponent extends BaseSidebarComponent {
   public title = 'Eyja DC';
   public menu = [
     { name: '状态', link: '/app/dashboard', icon: 'dashboard' },
-    { name: '资源', link: '/app/dashboard-custom', icon: 'view_quilt' },
+    { name: '资源', link: '/app/resource', icon: 'view_quilt' },
     // {
     //   name: 'UI',
     //   children: [
@@ -34,7 +34,7 @@ export class SidebarComponent extends BaseSidebarComponent {
     //   ],
     //   icon: 'view_comfy',
     // },
-    // { name: 'Components', link: '/app/components', icon: 'developer_board' },
+    { name: '历史', link: '/app/history', icon: 'developer_board' },
     // { name: 'Account', link: '/app/forms', icon: 'person' },
     // {
     //   name: 'Maps', icon: 'map', children: [
@@ -42,7 +42,7 @@ export class SidebarComponent extends BaseSidebarComponent {
     //   { name: 'Advanced map', link: '/maps/advanced' },
     //   ],
     // },
-    // { name: 'Charts', link: '/app/charts', icon: 'multiline_chart' },
+    // { name: '配置', link: '/app/charts', icon: 'multiline_chart' },
     // {
     //   name: 'Pages', children: [
     //   { name: 'Sign in', link: '/pages/login' },

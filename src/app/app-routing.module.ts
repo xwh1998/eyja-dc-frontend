@@ -4,9 +4,9 @@ import { RouterModule } from '@angular/router';
 import { LayoutsModule } from './layouts';
 import { CommonLayoutComponent } from './layouts/common-layout';
 import { ChartsComponent } from './pages/charts';
-import { ComponentsComponent } from './pages/components';
+import { HistoryComponent } from './pages/history';
 import { DashboardComponent } from './pages/dashboard';
-import { Dashboard2Component } from './pages/dashboard2';
+import { Resource } from './pages/resource';
 import { FormsComponent } from './pages/forms';
 
 // @ts-ignore
@@ -19,10 +19,10 @@ import { FormsComponent } from './pages/forms';
         { path: '', redirectTo: 'app/dashboard', pathMatch: 'full' },
         { path: 'app', component: CommonLayoutComponent, children: [
           { path: 'dashboard', component: DashboardComponent, pathMatch: 'full' },
-          { path: 'dashboard-custom', component: Dashboard2Component, pathMatch: 'full' },
+          { path: 'resource', component: Resource, pathMatch: 'full' },
           { path: 'forms', component: FormsComponent, pathMatch: 'full' },
           { path: 'charts', component: ChartsComponent, pathMatch: 'full' },
-          { path: 'components', component: ComponentsComponent, pathMatch: 'full' },
+          { path: 'history', component: HistoryComponent, pathMatch: 'full' },
           { path: '**', redirectTo: '/ypages/404' },
         ] }, // add 'canActivate: AuthGuard' for catching unauth users
         { path: 'ui', loadChildren: () => import('./pages/ui/ui.module').then(m => m.UIModule) },

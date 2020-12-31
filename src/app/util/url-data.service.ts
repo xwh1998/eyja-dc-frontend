@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UrlDataService {
-  public static baseUrl = 'http://mtage.top:8000/eyja-dc';
+  public static baseUrl = 'http://localhost:8000/eyja-dc';
 
   public static reportUrl = UrlDataService.baseUrl + "/report";
 
@@ -16,6 +16,8 @@ export class UrlDataService {
   public static outFileListUrl = UrlDataService.baseUrl + "/out";
 
   public static mapReduceSubmitUrl = UrlDataService.baseUrl + "/mr";
+
+  public static raftNodesStatusUrl = UrlDataService.baseUrl + "/kv/status";
 
   constructor() { }
 }

@@ -1,5 +1,26 @@
 <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone">
   <base-card>
+    <base-card-body class="no-padding">
+      <div class="mdl-textfield mdl-js-textfield full-size">
+        <div>
+          <input type='file' (change)="fileChanged($event)">
+        </div>
+        <br>
+        <label baseCheckbox color="green" (click)="onClickSaveToKV($event)">保存至KV Cluster
+        </label>
+        <!--        <label class="mdl-textfield__label" for="work-file">Work File</label>-->
+      </div>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue"
+              [disabled]="uploadDisable"
+              (click)="onClickUploadFile()">
+        {{this.uploadBtnText}}
+      </button>
+    </base-card-body>
+  </base-card>
+</div>
+
+<div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone">
+  <base-card>
     <base-card-title>
       <h1 class="mdl-card__title-text" *ngIf="resources">全部文件</h1>
       <h1 class="mdl-card__title-text" *ngIf="!resources">加载中...</h1>
@@ -18,12 +39,17 @@
               {{file.name}}
             </td>
             <td class="mdl-data-table__cell--non-numeric">
-              {{file.size / 1024 }}KB
+              {{(file.size / 1024).toFixed(2) }} KB
             </td>
             <td class="mdl-data-table__cell--non-numeric">
               {{file.modTime}}
             </td>
             <td class="mdl-data-table__cell--non-numeric">
+              {{file.source}}
+              <div *ngIf="file.source === 'KV Cluster'" class="icon material-icons color-text--green" >check</div>
+            </td>
+            <td>
+<!--              <label baseCheckbox color="green">Apple</label>-->
               <input type="checkbox" (change)="selectedChanged($event, i)">
             </td>
           </tr>
@@ -45,44 +71,11 @@
       <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue"
               [disabled]="submitDisable"
               (click)="onClickSubmitTask()"
-
       >
         {{this.submitBtnText}}
       </button>
     </base-card-body>
   </base-card>
 </div>
-<div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone">
-  <base-card>
-    <base-card-title>
-      <h1 class="mdl-card__title-text">结果文件</h1>
-      <div class="mdl-layout-spacer"></div>
-    </base-card-title>
-    <base-card-body class="no-padding">
-      <table class="mdl-data-table mdl-js-data-table">
-        <thead>
-        <tr>
-          <th *ngFor="let header of headers.slice(0, 3)" class="mdl-data-table__cell--non-numeric">{{ header }}</th>
-        </tr>
-        </thead>
-        <tbody *ngIf="outFiles">
-        <tr *ngFor="let file of outFiles">
-          <td class="mdl-data-table__cell--non-numeric">
-            {{file.name}}
-          </td>
-          <td class="mdl-data-table__cell--non-numeric">
-            {{file.size / 1024 }}KB
-          </td>
-          <td class="mdl-data-table__cell--non-numeric">
-            {{file.modTime}}
-          </td>
-          <td class="mdl-data-table__cell--non-numeric">
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-teal" (click)="onClickReadFile(file.name)">Read
-            </button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </base-card-body>
-  </base-card>
-</div>
+
+

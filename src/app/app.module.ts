@@ -8,9 +8,9 @@ import {CheckboxComponent} from '../theme/components/checkbox';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChartsModule } from './pages/charts';
-import { ComponentsModule } from './pages/components';
+import { HistoryModule } from './pages/history';
 import { DashboardModule } from './pages/dashboard';
-import { Dashboard2Module } from './pages/dashboard2';
+import { ResourceModule } from './pages/resource';
 import { FormsModule } from './pages/forms';
 
 @NgModule({
@@ -18,9 +18,9 @@ import { FormsModule } from './pages/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ComponentsModule,
+    HistoryModule,
     DashboardModule,
-    Dashboard2Module,
+    ResourceModule,
     FormsModule,
     ChartsModule,
     HttpClientModule,

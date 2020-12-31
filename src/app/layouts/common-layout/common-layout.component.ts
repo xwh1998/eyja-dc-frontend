@@ -16,8 +16,8 @@ export class CommonLayoutComponent implements OnInit {
 
   public ngOnInit() {
     this.authService.userData.subscribe(user => this.user = user ? user : {
-      username: 'Luke',
-      email: 'Luke@skywalker.com',
+      username: 'Eyjafjalla',
+      email: 'mtage@outlook.com',
     });
   }
 

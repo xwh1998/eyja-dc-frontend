@@ -6,7 +6,7 @@ import { ThemeModule } from 'theme';
 
 import { BadgesComponent } from './badges';
 import { ChipsComponent } from './chips';
-import { ComponentsComponent } from './components.component';
+import { HistoryComponent } from './history.component';
 import { ProgressBarsComponent } from './progress-bars';
 import { SlidersComponent } from './sliders';
 import { TogglesComponent } from './toggles';
@@ -19,10 +19,10 @@ import { TooltipsComponent } from './tooltips';
     FormsModule,
   ],
   exports: [
-    ComponentsComponent,
+    HistoryComponent,
   ],
   declarations: [
-    ComponentsComponent,
+    HistoryComponent,
     TogglesComponent,
     ProgressBarsComponent,
     ChipsComponent,
@@ -31,4 +31,4 @@ import { TooltipsComponent } from './tooltips';
     BadgesComponent,
   ],
 })
-export class ComponentsModule { }
+export class HistoryModule { }

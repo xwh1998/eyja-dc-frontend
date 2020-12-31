@@ -8,7 +8,7 @@ import { ThemeModule } from 'theme';
 import { ChartsModule } from '../charts/charts.module';
 import { DashboardModule } from '../dashboard/dashboard.module';
 import { MapsModule } from '../maps/maps.module';
-import { Dashboard2Component } from './dashboard2.component';
+import { Resource } from './resource';
 import { FiltersComponent } from './filters/filters.component';
 import { FileListComponent } from './file-list/file-list.component';
 
@@ -23,9 +23,9 @@ import { FileListComponent } from './file-list/file-list.component';
     MaterialAngularSelectModule,
   ],
   declarations: [
-    Dashboard2Component,
+    Resource,
     FiltersComponent,
     FileListComponent,
   ],
 })
-export class Dashboard2Module {}
+export class ResourceModule {}

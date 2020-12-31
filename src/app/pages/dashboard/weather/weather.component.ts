@@ -20,13 +20,14 @@ export class WeatherComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.masterReport = await this.masterBasicService.getMasterReport();
-    this.masterRunning = this.masterReport.status === 0 ? "Free" : "Busy";
-    this.masterReport.nodes[0].lastConn = new Date(Date.parse(this.masterReport.nodes[0].lastConn.toString()));
-    // console.log(this.masterReport.nodes[0].lastConn.toISOString());
-    let kbData = this.masterReport.processedDataSize / 1024;
-    this.processedDesc = kbData <= 1024 * 10 ? kbData.toFixed(2) + " KB" : (kbData / 1024).toFixed(2) + " MB";
-
+    this.masterBasicService.getMasterReport().subscribe(v => {
+      this.masterReport = v;
+      this.masterRunning = this.masterReport.status === 0 ? "Free" : "Busy";
+      this.masterReport.nodes[0].lastConn = new Date(Date.parse(this.masterReport.nodes[0].lastConn.toString()));
+      // console.log(this.masterReport.nodes[0].lastConn.toISOString());
+      let kbData = this.masterReport.processedDataSize / 1024;
+      this.processedDesc = kbData <= 1024 * 10 ? kbData.toFixed(2) + " KB" : (kbData / 1024).toFixed(2) + " MB";
+    });
   }
 
 }

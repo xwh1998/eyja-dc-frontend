@@ -1,4 +1,5 @@
 import { Component, HostBinding, Input, ViewChild } from '@angular/core';
+import {MasterReportResponse} from '../../../app/entity/MasterReportResponse';
 
 @Component({
   selector: 'base-card base-card-body',

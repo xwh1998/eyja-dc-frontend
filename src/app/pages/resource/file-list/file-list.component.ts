@@ -19,10 +19,16 @@ export class FileListComponent implements OnInit {
   public submitDisable = false;
   public submitBtnText = "提交任务";
 
+  public uploadBtnText = "上传文件";
+  public uploadDisable = false;
+  public uploadingFile : File;
+  public saveToKV = false;
+
   public headers = [
     "Name",
     "Size",
     "Last Modified",
+    "Source",
     "Selected"
   ]
 
@@ -58,10 +64,35 @@ export class FileListComponent implements OnInit {
     }, 900);
   }
 
+  public async onClickUploadFile() {
+    console.log("saving to kv:" + this.saveToKV + "fileName: " + this.uploadingFile.name);
+    let fileReader = new FileReader();
+    this.uploadDisable = true;
+    fileReader.onload = (e) => {
+      console.log(fileReader.result);
+      // fileReader.readAsText(this.uploadingFile);
+      this.resourceService.tryPostResource(this.uploadingFile.name, fileReader.result.toString(), this.saveToKV)
+      location.reload();
+    }
+    fileReader.readAsText(this.uploadingFile)
+  }
 
   public selectedChanged(evt, index:number) {
     this.fileSelected[index] = evt.target.checked;
-    console.log(this.fileSelected)
+    // console.log(this.fileSelected)
+  }
+
+  public onClickSaveToKV(event) {
+    console.log(Object.keys(event.target))
+    if (Object.keys(event.target).includes("__zone_symbol__changefalse")) {
+      console.log("onclick save to kv");
+      this.saveToKV = !this.saveToKV;
+    }
+  }
+
+  public fileChanged(event) {
+    this.uploadingFile = event.target.files[0];
+    console.log("uploading file: " + this.uploadingFile);
   }
 
 }

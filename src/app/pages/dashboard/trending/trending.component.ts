@@ -18,9 +18,11 @@ export class TrendingComponent {
   }
 
 
-  async ngOnInit() {
-    this.masterReport = await this.masterBasicService.getMasterReport();
-    this.tasks = this.masterReport.mr.reverse().slice(0, 5);
+  ngOnInit() {
+     this.masterBasicService.getMasterReport().subscribe(v => {
+       this.masterReport = v;
+       this.tasks = this.masterReport.mr.reverse().slice(0, 5);
+     });
   }
 
 }

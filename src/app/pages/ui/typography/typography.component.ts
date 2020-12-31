@@ -20,12 +20,26 @@ export class TypographyComponent extends UpgradableComponent implements OnInit{
 
   public fileContent: string;
 
+  public title = "加载中...";
+
   async ngOnInit() {
     this.router.queryParamMap.subscribe(paramMap => {
       let fileName = paramMap.get("fileName");
+      let source = paramMap.get("source");
       if (fileName) {
-        this.resourceService.getFile(fileName).then(d => {
+        this.resourceService.getFile(fileName, source).then(d => {
           this.fileContent = d;
+          const blob = new Blob([this.fileContent], {type: 'text/csv'});
+          const url = window.URL.createObjectURL(blob);
+          var fileLink = document.createElement('a');
+          fileLink.href = url;
+
+          // forces the name of the downloaded file
+          fileLink.download = fileName;
+          fileLink.click();
+          // url.setAttribute('download', fileName);
+          // window.open(url);
+          this.title = "预览 " + fileName;
         });
       }
     });

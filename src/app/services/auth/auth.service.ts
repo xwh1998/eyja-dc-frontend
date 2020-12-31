@@ -14,7 +14,7 @@ export class AuthService {
 
   private isLogged$ = new BehaviorSubject(false);
   private url = `${environment.apiBaseUrl}/api/auth`;
-  private user = { username: 'Luke', email: 'Luke@skywalker.com' }; // some data about user
+  private user = { username: 'Eyja', email: 'mtage@outlook.com' }; // some data about user
 
   constructor(private http: HttpClient) {
 
