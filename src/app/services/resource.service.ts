@@ -29,6 +29,15 @@ export class ResourceService {
     })
   }
 
+  public async collectAllOutFiles(): Promise<string> {
+    return new Promise<string>(resolve => {
+      let result = this.httpC.get<SimpleResult<string>>(UrlDataService.outFileCollectUrl);
+      result.subscribe(v => {
+        resolve(v.data);
+      })
+    })
+  }
+
   public async getFile(fileName: string, source: string): Promise<string> {
     return new Promise<string>(resolve => {
       let result = this.httpC

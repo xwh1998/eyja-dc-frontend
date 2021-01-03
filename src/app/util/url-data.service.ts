@@ -14,6 +14,7 @@ export class UrlDataService {
   public static resourceReadUrl = UrlDataService.baseUrl + "/resource";
 
   public static outFileListUrl = UrlDataService.baseUrl + "/out";
+  public static outFileCollectUrl = UrlDataService.baseUrl + "/out/collect";
 
   public static mapReduceSubmitUrl = UrlDataService.baseUrl + "/mr";
 

@@ -28,8 +28,8 @@ export class TypographyComponent extends UpgradableComponent implements OnInit{
       let source = paramMap.get("source");
       if (fileName) {
         this.resourceService.getFile(fileName, source).then(d => {
-          this.fileContent = d;
-          const blob = new Blob([this.fileContent], {type: 'text/csv'});
+          this.fileContent = d.slice(0, 9999) + "...";
+          const blob = new Blob([d], {type: 'text/csv'});
           const url = window.URL.createObjectURL(blob);
           var fileLink = document.createElement('a');
           fileLink.href = url;

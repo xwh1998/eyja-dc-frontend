@@ -3,7 +3,13 @@
     <base-card-title>
       <h1 class="mdl-card__title-text" *ngIf="outFiles">历史结果文件</h1>
       <h1 class="mdl-card__title-text" *ngIf="!outFiles">加载中...</h1>
-      <div class="mdl-layout-spacer"></div>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-light-blue mymargin"
+              [disabled]="collectDisabled"
+              (click)="onClickCollectFile()">
+        收集
+      </button>
+      <div class="mdl-layout-spacer">
+      </div>
     </base-card-title>
     <base-card-body class="no-padding">
       <table class="mdl-data-table mdl-js-data-table">
