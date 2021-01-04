@@ -16,7 +16,8 @@ export class MapReduceService {
       workURL: workURL,
       inputFiles: inputFiles,
       reduceCount: reduceCount,
-      appId: appId
+      appId: appId,
+      reloadFromResource: true
     };
     return new Promise<string>(resolve => {
       let result = this.httpC.post<SimpleResult<string>>(UrlDataService.mapReduceSubmitUrl, request);

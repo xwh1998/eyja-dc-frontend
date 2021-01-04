@@ -3,4 +3,5 @@ export class TaskSubmitRequest {
   inputFiles: string[];
   reduceCount: number;
   appId: number;
+  reloadFromResource: boolean;
 }
